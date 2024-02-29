@@ -32,22 +32,6 @@ class Hook
      * @param mixed ...$args
      * @return void
      */
-    public static function callAction(string $name, mixed ...$args): void
-    {
-        if (Helpers::exists()) {
-            ProHook::callAction($name, ...$args);
-        }
-
-        if (Helpers::liteExists()) {
-            LiteHook::callAction($name, ...$args);
-        }
-    }
-
-    /**
-     * @param string $name
-     * @param mixed ...$args
-     * @return void
-     */
     public static function removeAction(string $name, mixed ...$args): void
     {
         if (Helpers::exists()) {
@@ -69,28 +53,11 @@ class Hook
     public static function addFilter(string $name, mixed $callback, int $priority = 10, int $acceptedArgs = 1): mixed
     {
         if (Helpers::exists()) {
-            return ProHook::addFilter($name, $callback, $priority, $acceptedArgs);
+            ProHook::addFilter($name, $callback, $priority, $acceptedArgs);
         }
 
         if (Helpers::liteExists()) {
-            return LiteHook::addFilter($name, $callback, $priority, $acceptedArgs);
-        }
-    }
-
-    /**
-     * @param string $name
-     * @param mixed $value
-     * @param mixed ...$args
-     * @return mixed
-     */
-    public static function callFilter(string $name, mixed $value, mixed ...$args): mixed
-    {
-        if (Helpers::exists()) {
-            return ProHook::callFilter($name, $value, ...$args);
-        }
-
-        if (Helpers::liteExists()) {
-            return LiteHook::callFilter($name, $value, ...$args);
+            LiteHook::addFilter($name, $callback, $priority, $acceptedArgs);
         }
     }
 
