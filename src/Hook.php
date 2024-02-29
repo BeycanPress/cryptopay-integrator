@@ -48,9 +48,9 @@ class Hook
      * @param mixed $callback
      * @param integer $priority
      * @param integer $acceptedArgs
-     * @return mixed
+     * @return void
      */
-    public static function addFilter(string $name, mixed $callback, int $priority = 10, int $acceptedArgs = 1): mixed
+    public static function addFilter(string $name, mixed $callback, int $priority = 10, int $acceptedArgs = 1): void
     {
         if (Helpers::exists()) {
             ProHook::addFilter($name, $callback, $priority, $acceptedArgs);
