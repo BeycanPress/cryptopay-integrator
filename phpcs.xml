@@ -5,6 +5,7 @@
         BeycanPressStandard
     </description>
     <file>./**/*.php</file>
+    <exclude-pattern>*/views/*</exclude-pattern>
     <arg name="extensions" value="php"/>
     <arg name="standard" value="PSR12"/>
     <rule ref="Generic.Files.InlineHTML"/>
