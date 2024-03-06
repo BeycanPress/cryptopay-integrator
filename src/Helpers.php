@@ -186,7 +186,7 @@ class Helpers
     {
         $token = isset($_GET['cp_spp']) ? sanitize_text_field($_GET['cp_spp']) : null;
 
-        if ($token) {
+        if ($token && Session::has($token)) {
             extract(Session::get($token));
             if (Type::PRO === $type) {
                 $cryptopay = self::createProPayment($addon, (array) $order);

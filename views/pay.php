@@ -34,6 +34,10 @@
                 margin-right: 20px;
             }
 
+            .payment-info h2 {
+                margin-top: 0;
+            }
+
             .payment-form {
                 flex: 1;
                 max-width: 400px;
@@ -63,11 +67,11 @@
         <div class="container">
             <div class="payment-info">
                 <h2><?php echo esc_html__('Payment Information') ?></h2>
-                <?php if (isset($orderId)): ?>
-                    <p><strong><?php echo esc_html__('Order ID') ?>:</strong> <?php echo esc_html($orderId) ?></p>
+                <?php if (isset($order['id'])): ?>
+                    <p><strong><?php echo esc_html__('Order ID') ?>:</strong> <?php echo esc_html($order['id']) ?></p>
                 <?php endif; ?>
-                <?php if (isset($amount)): ?>
-                    <p><strong><?php echo esc_html__('Amount') ?>:</strong> <?php echo esc_html($amount) ?></p>
+                <?php if (isset($order['amount'])): ?>
+                    <p><strong><?php echo esc_html__('Amount') ?>:</strong> <?php echo esc_html($order['amount']) ?> <?php echo esc_html($order['currency']) ?></p>
                 <?php endif; ?>
                 <?php if (isset($addon)): ?>
                     <p><strong><?php echo esc_html__('Addon') ?>:</strong> <?php echo esc_html($addon) ?></p>
@@ -80,5 +84,6 @@
                 <?php echo $cryptopay; ?>
             </div>
         </div>
+        <?php do_action('wp_print_footer_scripts'); ?>
     </body>
 </html>
