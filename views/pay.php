@@ -50,6 +50,11 @@
             }
 
             @media screen and (max-width: 768px) {
+                body {
+                    padding: 0 20px;
+                    text-align: center;
+                }
+
                 .container {
                     flex-direction: column;
                 }
@@ -59,6 +64,7 @@
                     margin-right: 0;
                     margin-bottom: 20px;
                     max-width: 100%;
+                    width: 100%;
                 }
             }
         </style>
