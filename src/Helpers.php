@@ -182,6 +182,17 @@ class Helpers
     }
 
     /**
+     * @param string $url
+     * @return string|null
+     */
+    public static function getSPPToken(string $url): ?string
+    {
+        /** @var array<mixed> $matches */
+        preg_match('/[?&]cp_spp=([^&]+)/', $url, $matches);
+        return isset($matches[1]) ? $matches[1] : null;
+    }
+
+    /**
      * @return void
      */
     public static function listenSPP(): void
