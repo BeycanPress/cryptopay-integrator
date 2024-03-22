@@ -144,6 +144,30 @@ class Helpers
     }
 
     /**
+     * @param string $currentPlugin
+     * @param string $pluginLink
+     * @param bool $download
+     * @return void
+     */
+    public static function requirePluginMessage(string $currentPlugin, string $pluginLink, bool $download = true): void
+    {
+        add_action('admin_notices', function () use ($currentPlugin, $pluginLink, $download): void {
+            require dirname(__DIR__) . '/views/message-1.php';
+        });
+    }
+
+    /**
+     * @param string $currentPlugin
+     * @return void
+     */
+    public static function requireCryptoPayMessage(string $currentPlugin): void
+    {
+        add_action('admin_notices', function () use ($currentPlugin): void {
+            require dirname(__DIR__) . '/views/message-2.php';
+        });
+    }
+
+    /**
      * @param array<mixed> $data
      * @return string
      * @throws \Exception
